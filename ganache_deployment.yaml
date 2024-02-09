@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ganache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ganache
+  template:
+    metadata:
+      labels:
+        app: ganache
+    spec:
+      containers:
+      - name: ganache
+        image: schadokar/eth-ganache:1.0.0
+        ports:
+        - containerPort: 8545

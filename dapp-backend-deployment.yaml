@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dapp-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dapp-backend
+  template:
+    metadata:
+      labels:
+        app: dapp-backend
+    spec:
+      containers:
+        - name: dapp-backend
+          image: schadokar/eth-server:1.0.0
+          ports:
+            - containerPort: 4000
